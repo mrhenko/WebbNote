@@ -112,6 +112,32 @@ function init_webbnote(files) {
 		
 		$(player).appendTo('body');
 		
+		/*
+			Kontrollera om några data-visible eller data-hide-attribut
+			har skrivits som hh:mm:ss-format och konvertera dem i så fall
+			till ms.
+		*/
+		$('[data-visible]').each(function() {
+			var visitime = $(this).attr('data-visible');
+			if (visitime.search(':') != -1) {
+				// Det här är en data-variabel som formaterats enligt hh:mm:ss
+				// Konvertera den.
+				var time_array = visitime.split(':');
+				new_time = hms_to_ms(time_array);	
+				$(this).attr('data-visible', new_time);
+			}
+			
+			var hidetime = $(this).attr('data-hide');
+			if (hidetime) {			
+				if (hidetime.search(':') != -1) {
+					time_array = hidetime.split(':');
+					new_time = hms_to_ms(time_array);
+					$(this).attr('data-hide', new_time);
+				}
+			}
+			
+		});
+		
 		// Se till att de element som har starttid 0 visas redan från
 		// början, även i Firefox (som krånglar annars).
 		$('[data-visible="0"]').each(function() {
@@ -120,7 +146,33 @@ function init_webbnote(files) {
 	
 	} else {
 		// Hantera webbläsare som inte har stöd för <audio>
-		var warning = '<div class="warning">Din webbläsare har inte stöd för &lt;audio&gt;-elementet i HTML5.</div>';
+		var warning = '<div class="warning"><p>Din webbläsare har inte stöd för &lt;audio&gt;-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med <ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul></p></div>';
 		$(warning).appendTo('body');
 	}
+}
+
+/** 
+* Hours:Minutes:Seconds to milliseconds.
+*
+* Konverterar tid som skrivits enligt HH:MM:SS
+* till millisekunder. Används vid initialisering
+* av WebbNote
+* 
+* @param time_array Tidsinmatningen uppslipptat i en array
+*
+* @retern Returnerar new_time, en integer med tiden i millisekunder
+*/
+function hms_to_ms(time_array) {
+	time_array = time_array.reverse();
+				
+	var new_time = 0;
+	var i = 1;
+	new_time = new_time + time_array[0] * 1000;
+				
+	while(i < time_array.length) {
+		var times = Math.pow(60, i);
+		new_time = parseInt(new_time) + time_array[i] * times * 1000;
+		i++;
+	}
+	return new_time;
 }
