@@ -211,6 +211,8 @@ function log_user() {
 				url: 'http://henrikcarlsson.se/wnlog/log.php',
 				data: wn_browser
 			});
+			
+			localStorage.setItem('wn_sent', 'sent');
 		}
 	}
 }
