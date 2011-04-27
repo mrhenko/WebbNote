@@ -24,15 +24,19 @@ li ul li {
 }
 
 .warning {
-	position: absolute;
-	top: 20px;
-	width: 400px;
-	left: 50%;
-	margin: 0;
-	margin-left: -200px;
+	position: relative;
+	width: 700px;
+	padding: 30px;
+	margin: 60px auto;
 	
 	background: #fff;
 	border: #f00 solid 4px;
+}
+
+.warning li, .warning {
+	font-size: 14px;
+	line-height: 1.5em;
+	color: #000;
 }
 
 .page {
@@ -140,20 +144,6 @@ aside {
 	width: 680px;
 	padding: 0;
 	margin: 0 0 0 120px;
-}
-
-@media screen and (max-height: 700px) {
-	.page {
-		margin: 30px auto;
-	}
-	aside {
-		top: 30px;
-	}
-}
-@media screen and (max-width: 1195px) {
-	body {
-		margin-left: 10px;;
-	}
 }
 
 /* Start för keynoten */
