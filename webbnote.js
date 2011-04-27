@@ -40,6 +40,15 @@
 			audio.currentTime = 0;
 		});
 		
+		$('#player .repeat').click(function() {
+			var newtime = audio.currentTime;
+			newtime = newtime - 10;
+			console.log(newtime);
+			if (newtime < 0) {
+				newtime = 0;
+			}
+		});
+		
 		$(audio).bind('play', function() {
 			$('#player #playpause').addClass('pause');
 			$('#player #playpause').removeClass('play');
@@ -108,7 +117,7 @@ function init_webbnote(files) {
 			player = player + '<source src="' + this + '" />';
 		});
 		
-		player = player + '</audio><a href="#" id="playpause" class="play"></a><a href="#" class="stop"></a></div></aside>';
+		player = player + '</audio><a href="#" id="playpause" class="play"></a><a href="#" class="stop"></a><a href="#" class="repeat"></a></div></aside>';
 		
 		$(player).appendTo('body');
 		
@@ -199,7 +208,7 @@ function log_user() {
 			
 			$.ajax({
 				type: 'POST',
-				url: 'http://localhost:8888/wnlog/log.php',
+				url: 'http://henrikcarlsson.se/wnlog/log.php',
 				data: wn_browser
 			});
 		}

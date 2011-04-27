@@ -136,6 +136,9 @@ aside {
 #player a.stop {
 	background-position: 0px -66px;
 }
+#player a.repeat {
+	background-position: 0px -99px;
+}
 
 #player #progressbar {
 	display: block;
