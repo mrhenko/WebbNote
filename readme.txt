@@ -1,5 +1,8 @@
 Version History
 
+0.0.6.5
+* "How To"-guiden har gjorts om från Word-format till Markdown och PDF.
+
 0.0.6
  *	print-stylesheet
  *	Knapp för att hoppa tillbaka 10s
@@ -22,7 +25,9 @@ Planerade tillägg
  *	Möjlighet att återuppta uppspelning om webbläsarfönstret stängts (localStorage).
  	 *	Möjlighet att lägga in egna bokmärken?
 
-
+Till 0.0.7
+ *	Ännu tydligare felmeddelande text för webbläsare som inte stöder <audio>. Förklara vad webbnote är och varför.
+ *	Slidesen ska kunna ses, läsas och skrivas ut även på webbläsare som inte stöder <audio>.
 
 
 Credits
