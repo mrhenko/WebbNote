@@ -99,12 +99,15 @@ Den timingbaserade visningen av element och uppspelningen av ljud förlitar sig 
 	<script src="webbnote/webbnote.js"></script>
 
 Detta laddar in biblioteken ”jQuery” och ”WebbNote”. Slutligen måste du aktivera din webbnote. Detta görs med funktionen init_webbnote(). Den kräver en eller flera ljudfiler för att fungera. Du anger vilka med hjälp av en så kallad array.
+
 	<script>
-		var files = new Array(ljudfil.mp3', 'ljudfil.aac', ljudfil.wav');
+		var files = new Array(ljudfil.mp3', 'ljudfil.ogg');
 		init_webbnote(files);
 	</script>
 
 Observera att de olika ljudfilerna inte är olika filer som spelas upp vid olika tidpunkter utan samma ljud, fast olika filformat. Anledningen till att flera filformat bör användas är att olika webbläsare stöder olika ljudformat.
+
+För maximalt stöd så bör din berättarröst finnas i både .mp3 och .ogg-format.
 
 Webbläsarstöd
 -------------------
