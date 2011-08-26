@@ -1,5 +1,6 @@
 .page.warning {
 	border: #f00 solid 4px;
+	display: block;
 }
 .page.warning h1 {
 	margin: 1em 0 0.5em 0;
