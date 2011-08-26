@@ -1,9 +1,24 @@
-Version History
+WebbNote
+=========
 
-0.1
- *	Uppdaterad syntax. (Mindre frihet och flexibilitet = enklare för producenten)
- *	Ta bort trackingkoden från version 0.0.5.
- *	Bygg om temat från grunden. (Minimalism!)
+For more information see the [wiki on github][1]
+
+
+Version History
+---------------
+
+**Important:** Version 0.1 makes several changes to the syntax of WebbNote (and changes the default language for this file to english). Check the [wiki on github][1] for more information.
+
+[1]: https://github.com/mrhenko/WebbNote/wiki
+
+### 0.1
+* Updated syntax. (Less freedom and flexibility = easier to use) (See the [wiki on github][1] for information on the Syntax.)
+* Tracking code from 0.0.5 has been removed.
+* The default theme has been rebuilt from scratch.
+* The How To-files have been removed in favor of the [wiki on github][1].
+* The language in this file has changed from Swedish to English.
+
+---------------------------------------------------------------------------
 
 0.0.6.5
 * "How To"-guiden har gjorts om från Word-format till Markdown och PDF.
