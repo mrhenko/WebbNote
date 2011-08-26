@@ -5,7 +5,7 @@
 		var quicknav = $('ul#quicknav');
 		$('#keynote .page').each(function () {
 			var data_visible = $(this).attr('data-visible');
-			var li_name = $(this).find('.headline h2').html();
+			var li_name = $(this).find('h2').html();
 			if (li_name == null) {
 				li_name = $(this).find('h1').html();
 			}
@@ -147,8 +147,6 @@ function init_webbnote(files) {
 			
 		});
 		
-		log_user();
-		
 		// Se till att de element som har starttid 0 visas redan från
 		// början, även i Firefox (som krånglar annars).
 		$('[data-visible="0"]').each(function() {
@@ -157,8 +155,8 @@ function init_webbnote(files) {
 	
 	} else {
 		// Hantera webbläsare som inte har stöd för <audio>
-		var warning = '<div class="warning"><h1>Ett fel uppstod</h1><p>Din webbläsare har inte stöd för &lt;audio&gt;-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med <ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul></p></div>';
-		$(warning).appendTo('body');
+		var warning = '<div class="page warning"><h1>Ett fel uppstod</h1><p>Din webbläsare har inte stöd för &lt;audio&gt;-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med <ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul></p></div>';
+		$(warning).prependTo('body');
 	}
 }
 
@@ -186,33 +184,4 @@ function hms_to_ms(time_array) {
 		i++;
 	}
 	return new_time;
-}
-
-/**
-* Log user info
-*
-* Skickar information om besökarens webbläsare och
-* operativsystem till min server så att jag kan se
-* vilka konfigurationer som fungerar med WebbNote.
-* IP-nummer eller liknande skickas INTE
-*
-*/
-function log_user() {
-	if('localStorage' in window && window['localStorage'] !== null){
-		if ((localStorage.getItem('wn_sent') == undefined) || (localStorage.getItem('wn_sent') != 'sent')) {
-			var wn_browser = {}
-			wn_browser.ua = escape(navigator.userAgent);
-			wn_browser.os = escape(navigator.platform);		
-			wn_browser.pf = 'tj1saXXN2mSzVPTrQAsz';
-			wn_browser.tl = document.title;
-			
-			$.ajax({
-				type: 'POST',
-				url: 'http://henrikcarlsson.se/wnlog/log.php',
-				data: wn_browser
-			});
-			
-			localStorage.setItem('wn_sent', 'sent');
-		}
-	}
 }

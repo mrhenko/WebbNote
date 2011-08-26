@@ -1,5 +1,10 @@
 Version History
 
+0.1
+ *	Uppdaterad syntax. (Mindre frihet och flexibilitet = enklare för producenten)
+ *	Ta bort trackingkoden från version 0.0.5.
+ *	Bygg om temat från grunden. (Minimalism!)
+
 0.0.6.5
 * "How To"-guiden har gjorts om från Word-format till Markdown och PDF.
 
@@ -9,7 +14,7 @@ Version History
  *	Rensade bort Gimp-projekten från images-mappen.
 
 0.0.5
- *	Lägg en en trackingkod som skickar information om webbläsare och operativsystem (men INTE IP-nummer eller liknande) till en server så att jag kan få lite information om hur det fungerar på olika plattformar.
+ *	Lägg in en trackingkod som skickar information om webbläsare och operativsystem (men INTE IP-nummer eller liknande) till en server så att jag kan få lite information om hur det fungerar på olika plattformar.
  *	Sortera tillfälligt bort alla @media-querier, så att det kan göras ordentligt istället.
  *	Styla "Din webbläsare stöder inte HTML5 Audio"-meddelandet bättre.
  
@@ -25,7 +30,12 @@ Planerade tillägg
  *	Möjlighet att återuppta uppspelning om webbläsarfönstret stängts (localStorage).
  	 *	Möjlighet att lägga in egna bokmärken?
 
-Till 0.0.7
+Till 0.1
+ *	Ladda in jQuery från Javascript så att mindre mängd kod behöver skrivas.
+ *	Se även till att åtgärda fel i WebbNote Creator
+ 	*	Kanske lägga till [newslide visible="xx:xx" hide="xx:xx"]?
+
+Till 0.1.1
  *	Ännu tydligare felmeddelande text för webbläsare som inte stöder <audio>. Förklara vad webbnote är och varför.
  *	Slidesen ska kunna ses, läsas och skrivas ut även på webbläsare som inte stöder <audio>.
 
