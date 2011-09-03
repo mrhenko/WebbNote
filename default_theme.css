@@ -199,3 +199,11 @@ aside {
 	margin-left: 1.5em;
 	padding-left: 0.5em;
 }
+
+.preview {
+	position: relative;
+	max-width: 768px;
+	margin: 5px auto;
+	padding: 5px;
+
+}

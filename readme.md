@@ -11,6 +11,9 @@ Version History
 
 [1]: https://github.com/mrhenko/WebbNote/wiki
 
+### 0.1.5
+* Added preview.htm for live preview of Markdown files as WebbNote.
+
 ### 0.1
 * Updated syntax. (Less freedom and flexibility = easier to use) (See the [wiki on github][1] for information on the Syntax.)
 * Tracking code from 0.0.5 has been removed.
@@ -40,20 +43,10 @@ Version History
 -------------------------------------------------------------------------------------------
 
 Planerade tillägg
- *	Bättre stöd för enheter med små skärmar (@media-queries helt enkelt).
- *	Möjlighet att lägga in olika ljudfiler på olika sidor/slides.
- *	Möjlighet att återuppta uppspelning om webbläsarfönstret stängts (localStorage).
- 	 *	Möjlighet att lägga in egna bokmärken?
-
-Till 0.1
- *	Ladda in jQuery från Javascript så att mindre mängd kod behöver skrivas.
- *	Se även till att åtgärda fel i WebbNote Creator
- 	*	Kanske lägga till [newslide visible="xx:xx" hide="xx:xx"]?
-
-Till 0.1.1
- *	Ännu tydligare felmeddelande text för webbläsare som inte stöder <audio>. Förklara vad webbnote är och varför.
- *	Slidesen ska kunna ses, läsas och skrivas ut även på webbläsare som inte stöder <audio>.
+ *	Möjlighet att lägga in olika ljudfiler på olika sidor/slides.  
+ *	Möjlighet att återuppta uppspelning om webbläsarfönstret stängts (localStorage).  
+ 	 *	Möjlighet att lägga in egna bokmärken?  
 
 
 Credits
-Mediaspelarikonerna är skapade av deleket (http://deleket.deviantart.com/) och licensierade som CC Attribution-Noncommercial 3.0
+The Media Player Icons in the default theme is created by deleket (http://deleket.deviantart.com/) and licensed as CC Attribution-Noncommercial 3.0
