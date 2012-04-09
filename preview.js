@@ -5,9 +5,30 @@
 */
 
 (function ($) {
+	// On page (re)load, see if we have a filename saved in sessionStorage
+	var file_name;
+	if (file_name = window.sessionStorage.getItem('wn_preview_filename')) {
+		loadFileViaAjax(file_name);	
+	}
+	
+
+
+	// Catch submits of the filename text field
 	$('#preview-file').submit(function(e) {
 		e.preventDefault();
 		var file_name = '../' + $(this).children('#filename').val();
+
+		// Store the filename in sessionStorage
+		if (window.sessionStorage) {
+			window.sessionStorage.setItem('wn_preview_filename', file_name);	
+		}
+
+		// Run the function that loads the file
+		loadFileViaAjax(file_name);
+	});
+
+	// Load the file
+	function loadFileViaAjax(file_name) {
 		$.ajax({
 			url: file_name,
 			success: function(md) {
@@ -22,8 +43,9 @@
 				$('#keynote').html('');
 				$('#keynote').append(html);
 			}
-		});
-	});
+		});	
+	}
+
 })(jQuery)
 
 function turn_into_markdown(md) {

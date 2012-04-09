@@ -11,6 +11,10 @@ Version History
 
 [1]: https://github.com/mrhenko/WebbNote/wiki
 
+### 0.1.5.1
+* preview.htm now uses sessionStorage so you can refresh the page in the browser without having to retype the filename of the file that you want to preview. (Se Issue #10 on github.)
+* Added a .gitignore file to the repository.
+
 ### 0.1.5
 * Added preview.htm for live preview of Markdown files as WebbNote.
 
