@@ -1,7 +1,7 @@
 (function($) {
 	$(document).ready(function() { 
-		// Skapa en lista över de olika sidorna (.page)
-		// och lägg dem i en snabbnavigeringsmeny
+		// Make a list of the various slides/pages (.page)
+		// and add them to the quick navigation menu
 		var quicknav = $('ul#quicknav');
 		$('#keynote .page').each(function () {
 			var data_visible = $(this).attr('data-visible');
@@ -13,19 +13,20 @@
 			$(quicknav).append(new_li);
 		});
 	
-		// Skapa variabler för keynoten och ljudet för att
-		// snabba upp det hela.
+		// Assign the DOM elements for the keynote and the
+		// audio to enable better performance.
 		
 		var keynote = $('#keynote');
 		var audio = $('#presentation').get(0);
 		
-		// Gör progressbaren lika "lång" som låten
-		var progressbar = $('#player #progressbar');
-		var duration = Math.round(audio.duration);
+		// Make the progressbar as "long" as the presentation
+		// (Disabled since there is no working progress bar.)
+		// var progressbar = $('#player #progressbar');
+		// var duration = Math.round(audio.duration);
+		//
+		// $(progressbar).attr('max', duration);
 		
-		$(progressbar).attr('max', duration);
-		
-		// Mediaspelarkontroller
+		// Transport controls for the media player
 		$('#player #playpause').click(function() {
 			if (audio.paused) {
 				audio.play();
@@ -34,7 +35,7 @@
 			} 
 		});
 		
-		// Stoppknappen
+		// The stop button
 		$('#player .stop').click(function() {
 			audio.pause();
 			audio.currentTime = 0;
@@ -58,15 +59,15 @@
 			$('#player #playpause').removeClass('pause');
 		});
 		
-		// En event-hanterare för när ljudet spelas
+		// An event handeler for when the audio is playing
 		$(audio).bind('timeupdate', function() {
 			var position = audio.currentTime;
 			
-			// Flytta progressbar-indikatorn
-			$(progressbar).attr('value', position);
+			// Move the progress bar indicator
+			// (Disabled since there is no working progress bar.)
+			// $(progressbar).attr('value', position);
 			
-			// Kolla igenom alla element som har en "data-hide"
-			// som alltså talar om när den ska vara osynlig.
+			// Check all elements that has a 'data-hide' attribute.
 			$('[data-hide]').each(function() {
 				var hidetime = $(this).attr('data-hide') / 1000;
 				if (position >= hidetime) {
@@ -74,16 +75,16 @@
 				}
 			});
 			
-			// Kolla igenom alla element som har en 'data-visible'
-			// som alltså talar om när den ska vara synlig.
+			// Check all elements that has a 'data-visible' attribute
 			$('[data-visible]').each(function() {
-				// Tala om att de ska vara tidsinställda
+				// The class .timed tells the framework that the element
+				// should have a timed apperance.
 				$(this).addClass('timed');
 				
-				// När ska elementet visas, i sekunder
+				// Convert the time to seconds
 				var starttime = $(this).attr('data-visible') / 1000;
 				var hidetime = $(this).attr('data-hide') / 1000;
-				// Kontrollera att elementet verkligen har en "hidetime"
+
 				if (hidetime) {
 					if ((position >= starttime) && (position < hidetime)) {
 						$(this).addClass('show');
@@ -100,8 +101,8 @@
 			});
 		});
 		
-		// Klick i snabbvalsmenyn resulterar i att
-		// ljudfilens uppspelningsposition flyttas.
+		// If the user clicks an option in the quick nav menu
+		// change the audio position to this "chapter".
 		$('#quicknav a').bind('click', function() {
 			var new_position = $(this).attr('data-time') / 1000;
 			audio.currentTime = new_position;
@@ -121,16 +122,14 @@ function init_webbnote(files) {
 		
 		$(player).appendTo('body');
 		
-		/*
-			Kontrollera om några data-visible eller data-hide-attribut
-			har skrivits som hh:mm:ss-format och konvertera dem i så fall
-			till ms.
+		// Check alla data-visible and data-hide attribute to see if
+		// any of them uses the hh:mm:ss format and convert those to
+		// milliseconds.
 		*/
 		$('[data-visible]').each(function() {
 			var visitime = $(this).attr('data-visible');
 			if (visitime.search(':') != -1) {
-				// Det här är en data-variabel som formaterats enligt hh:mm:ss
-				// Konvertera den.
+				// Split the time into an array
 				var time_array = visitime.split(':');
 				new_time = hms_to_ms(time_array);	
 				$(this).attr('data-visible', new_time);
@@ -147,14 +146,15 @@ function init_webbnote(files) {
 			
 		});
 		
-		// Se till att de element som har starttid 0 visas redan från
-		// början, även i Firefox (som krånglar annars).
+		// Make sure all elements with a starttime of 0 i showned from
+		// the start. (Without this, there is a potential problem with
+		// Firefox.)
 		$('[data-visible="0"]').each(function() {
 			$(this).addClass('show');
 		});
 	
 	} else {
-		// Hantera webbläsare som inte har stöd för <audio>
+		// Error handeling for browsers that don't support <audio>
 		var warning = '<div class="page warning"><h1>Ett fel uppstod</h1><p>Din webbläsare har inte stöd för &lt;audio&gt;-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med <ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul></p></div>';
 		$(warning).prependTo('body');
 	}
@@ -163,13 +163,12 @@ function init_webbnote(files) {
 /** 
 * Hours:Minutes:Seconds to milliseconds.
 *
-* Konverterar tid som skrivits enligt HH:MM:SS
-* till millisekunder. Används vid initialisering
-* av WebbNote
+* Converts time that has been written like HH:MM:SS
+* to milliseconds. Used on initilazation of WebbNote.
 * 
-* @param time_array Tidsinmatningen uppslipptat i en array
+* @param time_array Time, spliced to an array.
 *
-* @retern Returnerar new_time, en integer med tiden i millisekunder
+* @return An integer with the time in milliseconds.
 */
 function hms_to_ms(time_array) {
 	time_array = time_array.reverse();

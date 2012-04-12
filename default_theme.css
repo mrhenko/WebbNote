@@ -119,7 +119,7 @@ img.right {float: right;}
 a {color: #333; text-decoration: underline;}
 a:hover {color: #f00;}
 
-/* Sidopanelen */
+/* The side panel */
 aside {
 	position: absolute;
 	left: 50%;
@@ -129,7 +129,7 @@ aside {
 	width: 220px;
 }
 
-/* Snabbvalsmenyn */
+/* Quick navigation menu */
 #quicknav {
 	
 	padding: 10px;
@@ -152,7 +152,7 @@ aside {
 	line-height: 1.5em;
 }
 
-/* Mediaspelaren */
+/* Media player */
 #player {
 	position: relative;
 	margin: 0 auto;
