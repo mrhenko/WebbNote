@@ -2,13 +2,16 @@
 	$(document).ready(function() { 
 		// Make a list of the various slides/pages (.page)
 		// and add them to the quick navigation menu
-		var quicknav = $('ul#quicknav');
+		var quicknav = $('#quicknav');
 		$('#keynote .page').each(function () {
-			var data_visible = $(this).attr('data-visible');
-			var li_name = $(this).find('h2').html();
+			var $this = $(this),
+				data_visible = $this.attr('data-visible'),
+				li_name = $this.find('h2').html();
+				
 			if (li_name == null) {
-				li_name = $(this).find('h1').html();
+				li_name = $this.find('h1').html();
 			}
+			
 			var new_li = '<li class="page_quicknav"><a href="#" data-time="' + data_visible + '">' + li_name + '</a></li>';
 			$(quicknav).append(new_li);
 		});
@@ -21,13 +24,13 @@
 		
 		// Make the progressbar as "long" as the presentation
 		// (Disabled since there is no working progress bar.)
-		// var progressbar = $('#player #progressbar');
+		// var progressbar = $('#progressbar');
 		// var duration = Math.round(audio.duration);
 		//
 		// $(progressbar).attr('max', duration);
 		
 		// Transport controls for the media player
-		$('#player #playpause').click(function() {
+		$('#playpause').click(function() {
 			if (audio.paused) {
 				audio.play();
 			} else {
@@ -35,13 +38,15 @@
 			} 
 		});
 		
+		var $player = $('#player');
+
 		// The stop button
-		$('#player .stop').click(function() {
+		$player.find('.stop').click(function() {
 			audio.pause();
 			audio.currentTime = 0;
 		});
 		
-		$('#player .repeat').click(function() {
+		$player.find('.repeat').click(function() {
 			var newtime = audio.currentTime;
 			newtime = newtime - 10;
 			console.log(newtime);
@@ -51,12 +56,12 @@
 		});
 		
 		$(audio).bind('play', function() {
-			$('#player #playpause').addClass('pause');
-			$('#player #playpause').removeClass('play');
+			$('#playpause').addClass('pause');
+			$('#playpause').removeClass('play');
 		});
 		$(audio).bind('pause', function() {
-			$('#player #playpause').addClass('play');
-			$('#player #playpause').removeClass('pause');
+			$('#playpause').addClass('play');
+			$('#playpause').removeClass('pause');
 		});
 		
 		// An event handeler for when the audio is playing
@@ -125,22 +130,23 @@ function init_webbnote(files) {
 		// Check alla data-visible and data-hide attribute to see if
 		// any of them uses the hh:mm:ss format and convert those to
 		// milliseconds.
-		*/
 		$('[data-visible]').each(function() {
-			var visitime = $(this).attr('data-visible');
+			var $this = $(this),
+				visitime = $this.attr('data-visible');
+				
 			if (visitime.search(':') != -1) {
 				// Split the time into an array
 				var time_array = visitime.split(':');
 				new_time = hms_to_ms(time_array);	
-				$(this).attr('data-visible', new_time);
+				$this.attr('data-visible', new_time);
 			}
 			
-			var hidetime = $(this).attr('data-hide');
+			var hidetime = $this.attr('data-hide');
 			if (hidetime) {			
 				if (hidetime.search(':') != -1) {
 					time_array = hidetime.split(':');
 					new_time = hms_to_ms(time_array);
-					$(this).attr('data-hide', new_time);
+					$this.attr('data-hide', new_time);
 				}
 			}
 			
