@@ -193,9 +193,13 @@ aside {
 	margin: 0 0 0 120px;
 }
 
-#keynote li.smalltext {
-	font-size: 1em;
-	line-height: 1.5em;
+#keynote > section.page > ul > li.smalltext {
+	font-size: 1.3em;
+}
+
+#keynote ul li ul li.smalltext {
+	font-size: 0.7em;
+	line-height: 1.3em;
 	margin-left: 1.5em;
 	padding-left: 0.5em;
 }
