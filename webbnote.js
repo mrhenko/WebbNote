@@ -49,10 +49,10 @@
 		$player.find('.repeat').click(function() {
 			var newtime = audio.currentTime;
 			newtime = newtime - 10;
-			console.log(newtime);
 			if (newtime < 0) {
 				newtime = 0;
 			}
+			audio.currentTime = newtime;
 		});
 		
 		$(audio).bind('play', function() {
