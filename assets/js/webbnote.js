@@ -131,7 +131,7 @@
 
 function init_webbnote( files ) {
 	if( !!document.createElement( 'audio' ).canPlayType ) {
-		var player = '<aside class="sidebar"><ul id="quicknav"><li><h2>Snabbvalsmeny</h2></li></ul><div id="player"><audio id="presentation">';
+		var player = '<aside class="sidebar"><ul id="quicknav" class="quicknav"><li><h2>Snabbvalsmeny</h2></li></ul><div id="player"><audio id="presentation">';
 		
 		$( files ).each( function () {
 			player = player + '<source src="' + this + '" />';
