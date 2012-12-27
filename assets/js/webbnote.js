@@ -6,7 +6,9 @@
  */
 
 ( function( $, $document, undefined ) {
-	$( document ).ready( function() { 
+	$document.ready( function() {
+		$( 'html' ).addClass( 'js' );
+		
 		var $quicknav = $( '#quicknav' ),
 			$keynote = $( '#keynote' ),
 			$player = $( '#player' ),
@@ -128,7 +130,7 @@
 })( jQuery, jQuery( document ) );
 
 function init_webbnote( files ) {
-	if( !!document.createElement('audio').canPlayType ) {
+	if( !!document.createElement( 'audio' ).canPlayType ) {
 		var player = '<aside class="sidebar"><ul id="quicknav"><li><h2>Snabbvalsmeny</h2></li></ul><div id="player"><audio id="presentation">';
 		
 		$( files ).each( function () {
@@ -137,13 +139,13 @@ function init_webbnote( files ) {
 		
 		player = player + '</audio><a href="#" id="playpause" class="play"></a><a href="#" class="stop"></a><a href="#" class="repeat"></a></div></aside>';
 		
-		$( player ).appendTo('body');
+		$( player ).appendTo( 'body' );
 		
 		// Check alla data-visible and data-hide attribute to see if
 		// any of them uses the hh:mm:ss format and convert those to
 		// milliseconds.
 		$( '[data-visible]' ).each(function() {
-			var $this = $(this),
+			var $this = $( this ),
 				visitime = $this.attr( 'data-visible' ),
 				hidetime = $this.attr( 'data-hide' );
 				
@@ -190,7 +192,7 @@ function hms_to_ms( time_array ) {
 				
 	var new_time = 0,
 		i = 1;
-	new_time += time_array[0] * 1000;
+	new_time += time_array[ 0 ] * 1000;
 				
 	while( i < time_array.length ) {
 		var times = Math.pow( 60, i );

@@ -63,6 +63,7 @@ table {
 	border: #f00 solid 4px;
 	display: block;
 }
+
 .page.warning h1 {
 	margin: 1em 0 0.5em 0;
 }
@@ -70,19 +71,23 @@ table {
 #keynote li.timed {
 	opacity: 0;
 }
+
 #keynote li.timed.show {
 	opacity: 1;
 }
 
-.page {
+.js .page {
 	display: none;
 }
+
 .dev .page {
 	display: block;
 }
+
 .page.show {
 	display: block;
 }
+
 .dev #player {
 	display: none;
 }
