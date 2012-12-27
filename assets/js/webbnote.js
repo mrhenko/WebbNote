@@ -1,3 +1,10 @@
+/*!
+ * WebbNote
+ * 
+ * @version 0.1.5.2
+ * @repository https://github.com/mrhenko/WebbNote
+ */
+
 (function($) {
 	$(document).ready(function() { 
 		// Make a list of the various slides/pages (.page)

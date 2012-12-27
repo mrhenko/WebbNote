@@ -12,7 +12,8 @@ Version History
 [1]: https://github.com/mrhenko/WebbNote/wiki
 
 ### 0.1.5.2
-* Update jQuery to version 1.8.3.
+* New folder structure for dependencies.
+* Updated jQuery to version 1.8.3.
 
 ### 0.1.5.1
 * preview.htm now uses sessionStorage so you can refresh the page in the browser without having to retype the filename of the file that you want to preview. (Se Issue #10 on github.)
