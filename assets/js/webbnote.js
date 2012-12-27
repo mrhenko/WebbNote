@@ -120,7 +120,7 @@ function init_webbnote(files) {
 		var player = '<aside class="sidebar"><ul id="quicknav"><li><h2>Snabbvalsmeny</h2></li></ul><div id="player"><audio id="presentation">';
 		
 		$(files).each(function () {
-			player = player + '<source src="' + this + '" />';
+			player = player + '<source src="../../' + this + '" />';
 		});
 		
 		player = player + '</audio><a href="#" id="playpause" class="play"></a><a href="#" class="stop"></a><a href="#" class="repeat"></a></div></aside>';
@@ -161,7 +161,7 @@ function init_webbnote(files) {
 	
 	} else {
 		// Error handeling for browsers that don't support <audio>
-		var warning = '<div class="page warning"><h1>Ett fel uppstod</h1><p>Din webbläsare har inte stöd för &lt;audio&gt;-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med <ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul></p></div>';
+		var warning = '<div class="page warning"><h1>Ett fel uppstod</h1><p>Din webbläsare har inte stöd för <audio>-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med <ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul></p></div>';
 		$(warning).prependTo('body');
 	}
 }
