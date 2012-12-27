@@ -30,7 +30,6 @@ body {
 h1,
 h2,
 h3 {
-	display: block;
 	text-align: center;
 	font-weight: bold;
 }

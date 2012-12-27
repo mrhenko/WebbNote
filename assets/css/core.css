@@ -91,3 +91,76 @@ table {
 .dev #player {
 	display: none;
 }
+
+
+
+
+
+/*------------------------------------*\
+	$HELPERS
+\*------------------------------------*/
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.cover {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.inline {
+	display: inline;
+}
+
+ul.inline {
+	margin: 0;
+	padding: 0;
+}
+
+ul.inline li {
+	display: inline;
+}
+
+.hide-text {
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: '';
+	display: table;
+}
