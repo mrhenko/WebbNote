@@ -120,7 +120,7 @@ function init_webbnote(files) {
 		var player = '<aside class="sidebar"><ul id="quicknav"><li><h2>Snabbvalsmeny</h2></li></ul><div id="player"><audio id="presentation">';
 		
 		$(files).each(function () {
-			player = player + '<source src="../../' + this + '" />';
+			player = player + '<source src="' + this + '" />';
 		});
 		
 		player = player + '</audio><a href="#" id="playpause" class="play"></a><a href="#" class="stop"></a><a href="#" class="repeat"></a></div></aside>';
