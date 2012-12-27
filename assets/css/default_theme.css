@@ -182,3 +182,78 @@ aside {
 	margin: 5px auto;
 	padding: 5px;
 }
+
+@media screen and (max-height: 700px) {
+	.page {
+		margin: 30px auto;
+	}
+	aside {
+		top: 30px;
+	}
+}
+@media screen and (max-width: 1195px) {
+	body {
+		margin-left: 10px;;
+	}
+}
+
+/*
+	Anpassning för mindre skärmar
+*/
+
+@media (max-width: 1240px) {
+	body {
+		margin: 0 auto 0 5%;
+	}
+} /* mediequery */
+
+/* Smart phones */
+@media (max-device-width: 480px) {
+	body {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+	}
+	.page {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 800px;
+		
+		border: none;
+		-webkit-box-shadow: 0px;
+		-moz-box-shadow: 0px;
+		box-shadow: 0px;
+	}
+	aside, .dev aside {
+		position: fixed;
+		left: 0px;
+		top: 800px;
+		margin: 0;
+		width: 100%;
+		height: 200px;
+	}
+	#quicknav {
+		border: none;
+		-webkit-box-shadow: 0px;
+		-moz-box-shadow: 0px;
+		box-shadow: 0px;
+	}
+}
+
+
+/*
+	Anpassning för mindre skärmar
+*/
+
+/* Smart phones */
+@media (max-device-width: 480px) {
+	.page {
+		padding: 0;
+		margin: 0;
+		border: none;
+		-webkit-box-shadow: 0px;
+		box-shadow: 0px;
+	}
+}
