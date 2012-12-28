@@ -23,7 +23,7 @@
 				data_visible = $this.attr( 'data-visible' ),
 				li_name = $this.find( 'h2' ).html();
 				
-			if( li_name == null ) {
+			if ( li_name == null ) {
 				li_name = $this.find( 'h1' ).html();
 			}
 			
@@ -40,7 +40,7 @@
 		
 		// Transport controls for the media player
 		$playpause.click(function() {
-			if( audio.paused ) {
+			if ( audio.paused ) {
 				audio.play();
 			} else {
 				audio.pause();
@@ -57,7 +57,7 @@
 			var newtime = audio.currentTime;
 			newtime = newtime - 10;
 			
-			if( newtime < 0 ) {
+			if ( newtime < 0 ) {
 				newtime = 0;
 			}
 			
@@ -87,7 +87,7 @@
 				var $this = $( this ),
 					hidetime = $this.attr( 'data-hide' ) / 1000;
 					
-				if( position >= hidetime ) {
+				if ( position >= hidetime ) {
 					$this.removeClass( 'show' );
 				}
 			});
@@ -104,14 +104,14 @@
 				var starttime = $this.attr( 'data-visible' ) / 1000;
 				var hidetime = $this.attr( 'data-hide' ) / 1000;
 
-				if( hidetime ) {
-					if( ( position >= starttime ) && ( position < hidetime ) ) {
+				if ( hidetime ) {
+					if ( ( position >= starttime ) && ( position < hidetime ) ) {
 						$this.addClass( 'show' );
 					} else {
 						$this.removeClass( 'show' );
 					}
 				} else {
-					if( position >= starttime ) {
+					if ( position >= starttime ) {
 						$this.addClass( 'show' );
 					} else {
 						$this.removeClass( 'show' );
@@ -130,7 +130,7 @@
 })( jQuery, jQuery( document ) );
 
 function init_webbnote( files ) {
-	if( !!document.createElement( 'audio' ).canPlayType ) {
+	if ( !!document.createElement( 'audio' ).canPlayType ) {
 		var player = '<aside class="sidebar"><ul id="quicknav" class="quicknav"><li><h2>Snabbvalsmeny</h2></li></ul><div id="player"><audio id="presentation">';
 		
 		$( files ).each( function () {
@@ -149,15 +149,15 @@ function init_webbnote( files ) {
 				visitime = $this.attr( 'data-visible' ),
 				hidetime = $this.attr( 'data-hide' );
 				
-			if( visitime.search( ':' ) != -1 ) {
+			if ( visitime.search( ':' ) != -1 ) {
 				// Split the time into an array
 				var time_array = visitime.split( ':' );
 				new_time = hms_to_ms( time_array );	
 				$this.attr( 'data-visible', new_time );
 			}
 			
-			if( hidetime ) {			
-				if( hidetime.search( ':' ) != -1 ) {
+			if ( hidetime ) {			
+				if ( hidetime.search( ':' ) != -1 ) {
 					time_array = hidetime.split( ':' );
 					new_time = hms_to_ms( time_array );
 					$this.attr( 'data-hide', new_time );
