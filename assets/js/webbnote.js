@@ -127,24 +127,24 @@
 			audio.currentTime = new_position;
 		} );
 	} );
-})( jQuery, jQuery( document ) );
+} )( jQuery, jQuery( document ) );
 
 function init_webbnote( files ) {
 	if ( !!document.createElement( 'audio' ).canPlayType ) {
-		var player = '<aside class="sidebar"><ul id="quicknav" class="quicknav"><li><h2>Snabbvalsmeny</h2></li></ul><div id="player"><audio id="presentation">';
+		var player = '<aside class="sidebar"><h2>Snabbvalsmeny</h2><ul id="quicknav" class="quicknav"></ul><div id="player" class="player"><audio id="presentation">';
 		
-		$( files ).each( function () {
+		$( files ).each( function() {
 			player = player + '<source src="' + this + '" />';
 		} );
 		
 		player = player + '</audio><a href="#" id="playpause" class="play"></a><a href="#" class="stop"></a><a href="#" class="repeat"></a></div></aside>';
 		
-		$( player ).appendTo( 'body' );
+		$( player ).prependTo( 'body' );
 		
 		// Check alla data-visible and data-hide attribute to see if
 		// any of them uses the hh:mm:ss format and convert those to
 		// milliseconds.
-		$( '[data-visible]' ).each(function() {
+		$( '[data-visible]' ).each( function() {
 			var $this = $( this ),
 				visitime = $this.attr( 'data-visible' ),
 				hidetime = $this.attr( 'data-hide' );
