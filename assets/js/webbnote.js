@@ -1,14 +1,12 @@
 /*!
  * WebbNote
  * 
- * @version 0.1.5.2
+ * @version 0.1.6-wip
  * @repository https://github.com/mrhenko/WebbNote
  */
 
 ( function( $, $document, undefined ) {
 	$document.ready( function() {
-		$( 'html' ).addClass( 'js' );
-		
 		var $quicknav = $( '#quicknav' ),
 			$keynote = $( '#keynote' ),
 			$player = $( '#player' ),
@@ -16,65 +14,54 @@
 			$audio = $( '#presentation' ),
 			audio = $audio.get( 0 );
 		
-		// Make a list of the various slides/pages (.page)
-		// and add them to the quick navigation menu
-		$keynote.find( '.page' ).each( function() {
-			var $this = $( this ),
-				data_visible = $this.attr( 'data-visible' ),
-				li_name = $this.find( 'h2' ).html();
+		// Add js class to html element
+		$( 'html' ).addClass( 'js' );
+		
+		// Event delegation
+		$document
+			.delegate( '.menu-open', 'click', function( e ) {
+				e.preventDefault();
+				$( '.sidebar' ).find( 'h2, .quicknav' ).slideToggle();
+			} );
+		
+		$player
+			.delegate( '.play', 'click', function( e ) {
+				e.preventDefault();
 				
-			if ( li_name == null ) {
-				li_name = $this.find( 'h1' ).html();
-			}
-			
-			var new_li = '<li class="page_quicknav"><a href="#" data-time="' + data_visible + '">' + li_name + '</a></li>';
-			$quicknav.append( new_li );
-		} );
-		
-		// Make the progressbar as "long" as the presentation
-		// (Disabled since there is no working progress bar.)
-		// var progressbar = $('#progressbar');
-		// var duration = Math.round(audio.duration);
-		//
-		// $(progressbar).attr('max', duration);
-		
-		// Transport controls for the media player
-		$playpause.click(function() {
-			if ( audio.paused ) {
-				audio.play();
-			} else {
+				if ( audio.paused ) {
+					audio.play();
+				} else {
+					audio.pause();
+				} 
+			} )
+			.delegate( '.stop', 'click', function( e ) {
+				e.preventDefault();
+				
 				audio.pause();
-			} 
-		} );
-
-		// The stop button
-		$player.find( '.stop' ).click( function() {
-			audio.pause();
-			audio.currentTime = 0;
-		} );
-		
-		$player.find( '.repeat' ).click(function() {
-			var newtime = audio.currentTime;
-			newtime = newtime - 10;
-			
-			if ( newtime < 0 ) {
-				newtime = 0;
-			}
-			
-			audio.currentTime = newtime;
-		} );
+				audio.currentTime = 0;
+			} )
+			.delegate( '.repeat', 'click', function( e ) {
+				e.preventDefault();
+				
+				var newtime = audio.currentTime;
+				newtime = newtime - 10;
+				
+				if ( newtime < 0 ) {
+					newtime = 0;
+				}
+				
+				audio.currentTime = newtime;
+			} );
 		
 		$audio.bind( 'play', function() {
 			$playpause.addClass( 'pause' );
-			$playpause.removeClass( 'play' );
 		} );
 		
 		$audio.bind( 'pause', function() {
-			$playpause.addClass( 'play' );
 			$playpause.removeClass( 'pause' );
 		} );
 		
-		// An event handeler for when the audio is playing
+		// An event handler for when the audio is playing
 		$audio.bind( 'timeupdate', function() {
 			var position = audio.currentTime;
 			
@@ -120,18 +107,36 @@
 			} );
 		} );
 		
+		// Make a list of the various slides/pages (.page)
+		// and add them to the quick navigation menu
+		$keynote.find( '.page' ).each( function() {
+			var $this = $( this ),
+				data_visible = $this.attr( 'data-visible' ),
+				li_name = $this.find( 'h2' ).html();
+				
+			if ( li_name == null ) {
+				li_name = $this.find( 'h1' ).html();
+			}
+			
+			var new_li = '<li class="page_quicknav"><a href="#" data-time="' + data_visible + '">' + li_name + '</a></li>';
+			$quicknav.append( new_li );
+		} );
+		
 		// If the user clicks an option in the quick nav menu
 		// change the audio position to this "chapter".
 		$quicknav.find( 'a' ).bind( 'click', function() {
 			var new_position = $( this ).attr( 'data-time' ) / 1000;
 			audio.currentTime = new_position;
 		} );
+		
+		// Add link to navigation
+		$( 'body' ).prepend( '<a class="menu-open" href="#">&#9776;</a>' );
 	} );
 } )( jQuery, jQuery( document ) );
 
 function init_webbnote( files ) {
 	if ( !!document.createElement( 'audio' ).canPlayType ) {
-		var player = '<aside class="sidebar"><h2>Snabbvalsmeny</h2><ul id="quicknav" class="quicknav"></ul><div id="player" class="player"><audio id="presentation">';
+		var player = '<aside class="sidebar"><h2>Kapitel</h2><ul id="quicknav" class="quicknav"></ul><div id="player" class="player"><audio id="presentation">';
 		
 		$( files ).each( function() {
 			player = player + '<source src="' + this + '" />';

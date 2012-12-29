@@ -5,19 +5,13 @@
  */
 
 body {
-	background: #ddd;
-	color: #333;
-	font-family: "Lucinda Grande", Helvetica, Verdana;
-	font-size: 16px;
-	line-height: 1.5em;
+	width: 95%;
+	max-width: 780px;
+	margin: 1em auto 3em;
 }
 
 .page {
 	height: 550px;
-	max-width: 768px;
-	position: relative;
-	overflow: hidden;
-	margin: 30px auto;
 	padding: 20px;
 	background: #f5f5f5;
 	border: 3px solid #333;
@@ -37,7 +31,6 @@ h1 {
 }
 
 h2 {
-	border-bottom: 1px solid #333;
 	font-size: 3em;
 	line-height: 2em;
 }
@@ -47,209 +40,102 @@ h3 {
 	line-height: 1em;
 }
 
-hgroup h2 {
-	border-bottom: none;
-	font-size: 2.5em;
-	line-height: 1em;
-}
-
-aside h2 {
-	font-size: 1.5em;
-	line-height: 1em;
-}
-
-#keynote ul {
-	margin: 2em 0 0 0;
-}
-
-#keynote li {
-	margin-left: 1em;
-	list-style-position: outside;
-	list-style-type: disc;
-	font-size: 2em;
-	line-height: 1.5em;
-	
-	-webkit-transition: opacity 1s linear;
-	-moz-transition: opacity 1s linear;
-	-o-transition: opacity 1s linear;
-	transition: opacity 1s linear;
-}
-
-#keynote li ul {
-	margin: 0 0 0 -1.5em;
-	padding-left: 1.5em;
-}
-
-#keynote li ul li {
-	list-style-type: square;
-	font-size: 1em;
-}
-
-img.right {
-	float: right;
-}
-
-a {
-	color: #333;
-	text-decoration: underline;
-}
-
-a:hover {
-	color: #f00;
-}
-
-/* The side panel */
-aside {
-	width: 220px;
+.menu-open {
+	display: inline-block;
 	position: absolute;
-	top: 30px;
-	left: 50%;
-	z-index: 5;
-	margin-left: 404px;
-}
-
-/* Quick navigation menu */
-#quicknav {
-	max-height: 600px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding: 10px;
-	background: #f5f5f5;
-	border: 5px solid #333;
-	list-style: none;
+	top: 1em;
+	right: 5%;
+	z-index: 1;
+	padding: 0.25em;
+	background-color: #ccc;
+	border: 1px solid #333;
+	font-size: 1.5em;
+	text-decoration: none;
 	
-	-webkit-box-shadow: 10px 10px 6px rgba(0,0,0,0.6);
-	-moz-box-shadow: 10px 10px 6px rgba(0,0,0,0.6);
-	box-shadow: 10px 10px 6px rgba(0,0,0,0.6);
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
 }
 
-#quicknav li {
-	padding: 2px 0;
-	font-size: 0.75em;
-	line-height: 1.5em;
+.sidebar h2,
+.quicknav {
+	display: none;
 }
 
-/* Media player */
-#player {
-	position: relative;
-	margin: 0 auto;
-	padding: 5px 10px;
+.sidebar h2 {
+	margin-bottom: 0.5em;
+	font-size: 1em;
+	line-height: 1;
+	text-align: left;
 }
 
-#player a {
+.quicknav {
+	margin-bottom: 2em;
+}
+
+.player {
+	height: 2em;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	margin-left: -0.5em;
+	padding: 0.25em;
+	background-color: #999;
+	text-align: center;
+}
+
+.player a {
 	width: 32px;
 	height: 32px;
-	display: block;
-	float: left;
-	margin-right: 10px;
-	padding: 0;
-	border: none;
-	background-image: url("../img/player_sprite_small.png");
+	display: inline-block;
+	overflow: hidden;
+	margin-left: 0.5em;
+	background-color: #efefef;
+	font-size: 1em;
+	line-height: 1;
+	text-decoration: none;
+	text-indent: 100%;
+	
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
 }
 
-#player a.play { background-position: 0px -33px; }
-#player a.pause { background-position: 0px 0px; }
-#player a.stop { background-position: 0px -66px; }
-#player a.repeat { background-position: 0px -99px; }
-
-#player #progressbar {
-	width: 680px;
-	display: block;
-	clear: both;
-	float: left;
-	margin: 0 0 0 120px;
-	padding: 0;
+@media screen and (min-width: 480px) {
+	
 }
 
-#keynote > section.page > ul > li.smalltext {
-	font-size: 1.3em;
+@media screen and (min-width: 600px) {
+	
 }
 
-#keynote ul li ul li.smalltext {
-	margin-left: 1.5em;
-	padding-left: 0.5em;
-	font-size: 0.7em;
-	line-height: 1.3em;
-}
-
-.preview {
-	max-width: 768px;
-	position: relative;
-	margin: 5px auto;
-	padding: 5px;
-}
-
-@media screen and (max-height: 700px) {
-	.page {
-		margin: 30px auto;
+@media screen and (min-width: 1024px) {
+	html {
+		margin-left: -220px;
 	}
-	aside {
-		top: 30px;
-	}
-}
-@media screen and (max-width: 1195px) {
+	
 	body {
-		margin-left: 10px;;
+		margin-top: 2em;
 	}
-}
-
-/*
-	Anpassning för mindre skärmar
-*/
-
-@media (max-width: 1240px) {
-	body {
-		margin: 0 auto 0 5%;
+	
+	.menu-open {
+		display: none;
 	}
-} /* mediequery */
-
-/* Smart phones */
-@media (max-device-width: 480px) {
-	body {
-		padding: 0;
-		margin: 0;
-		width: 100%;
+	
+	.sidebar h2,
+	.quicknav {
+		display: block !important;
 	}
-	.page {
-		position: absolute;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 800px;
-		
-		border: none;
-		-webkit-box-shadow: 0px;
-		-moz-box-shadow: 0px;
-		box-shadow: 0px;
+	
+	.sidebar {
+		width: 220px;
+		float: right;
+		margin-right: -230px;
 	}
-	aside, .dev aside {
-		position: fixed;
-		left: 0px;
-		top: 800px;
-		margin: 0;
-		width: 100%;
-		height: 200px;
-	}
-	#quicknav {
-		border: none;
-		-webkit-box-shadow: 0px;
-		-moz-box-shadow: 0px;
-		box-shadow: 0px;
-	}
-}
-
-
-/*
-	Anpassning för mindre skärmar
-*/
-
-/* Smart phones */
-@media (max-device-width: 480px) {
-	.page {
-		padding: 0;
-		margin: 0;
-		border: none;
-		-webkit-box-shadow: 0px;
-		box-shadow: 0px;
+	
+	.player {
+		position: relative;
 	}
 }

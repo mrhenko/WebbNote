@@ -1,7 +1,7 @@
 /*!
  * WebbNote
  * 
- * @version 0.1.5.2
+ * @version 0.1.6-wip
  * @repository https://github.com/mrhenko/WebbNote
  */
 
@@ -55,10 +55,45 @@ table {
 
 
 
+/*------------------------------------*\
+	$BASE
+\*------------------------------------*/
+html {
+	background: #ddd;
+	color: #333;
+}
+
+body {
+	font-family: "Lucinda Grande", Helvetica, Verdana;
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
+a {
+	color: #333;
+	text-decoration: underline;
+}
+
+
+
+
 
 /*------------------------------------*\
 	$SPECIFIC
 \*------------------------------------*/
+.page {
+	position: relative;
+	overflow: hidden;	
+}
+
+.js .page {
+	display: none;
+}
+
+.dev .page {
+	display: block;
+}
+
 .page.warning {
 	border: #f00 solid 4px;
 	display: block;
@@ -74,14 +109,6 @@ table {
 
 #keynote li.timed.show {
 	opacity: 1;
-}
-
-.js .page {
-	display: none;
-}
-
-.dev .page {
-	display: block;
 }
 
 .page.show {
