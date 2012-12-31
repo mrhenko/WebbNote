@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Theme: Default 2013
  * @author Mikael Jorhult
@@ -7,7 +8,8 @@
 body {
 	width: 95%;
 	max-width: 780px;
-	margin: 1em auto 3em;
+	margin: 0 auto;
+	padding-bottom: 3em;
 }
 
 .page {
@@ -17,39 +19,16 @@ body {
 	border: 3px solid #333;
 }
 
-h1,
-h2,
-h3 {
-	text-align: center;
-	font-weight: bold;
-}
-
-h1 {
-	margin-top: 2.5em;
-	font-size: 4em;
-	line-height: 1em;
-}
-
-h2 {
-	font-size: 3em;
-	line-height: 2em;
-}
-
-h3 {
-	font-size: 1.5em;
-	line-height: 1em;
-}
-
 .menu-open {
 	display: inline-block;
 	position: absolute;
-	top: 1em;
-	right: 5%;
-	z-index: 1;
+	top: 0;
+	right: 0;
 	padding: 0.25em;
 	background-color: #ccc;
 	border: 1px solid #333;
-	font-size: 1.5em;
+	font-size: 1em;
+	line-height: 1;
 	text-decoration: none;
 	
 	-webkit-border-radius: 0.25em;
@@ -57,14 +36,9 @@ h3 {
 	border-radius: 0.25em;
 }
 
-.sidebar h2,
-.quicknav {
-	display: none;
-}
-
-.sidebar h2 {
-	margin-bottom: 0.5em;
-	font-size: 1em;
+.header h2 {
+	margin-bottom: 0.25em;
+	font-size: 1.75em;
 	line-height: 1;
 	text-align: left;
 }
@@ -74,15 +48,14 @@ h3 {
 }
 
 .player {
-	height: 2em;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	z-index: 1;
-	margin-left: -0.5em;
 	padding: 0.25em;
 	background-color: #999;
+	line-height: 1;
 	text-align: center;
 }
 
@@ -124,18 +97,23 @@ h3 {
 		display: none;
 	}
 	
-	.sidebar h2,
-	.quicknav {
-		display: block !important;
+	h1,
+	h2,
+	h3 {
+		line-height: 1em;
+		text-align: center;
+		font-weight: bold;
 	}
 	
-	.sidebar {
-		width: 220px;
-		float: right;
-		margin-right: -230px;
+	h1 {
+		font-size: 4em;
 	}
 	
-	.player {
-		position: relative;
+	h2 {
+		font-size: 3em;
+	}
+	
+	h3 {
+		font-size: 1.5em;
 	}
 }

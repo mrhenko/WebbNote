@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * WebbNote
  * 
@@ -8,6 +9,12 @@
 /*------------------------------------*\
 	$RESET
 \*------------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -69,9 +76,252 @@ body {
 	line-height: 1.5em;
 }
 
+body:before {
+	content: "";
+	height: 2em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	background-color: #f00;
+	border-bottom: 1px solid #006;
+}
+
+img {
+	max-width: 100%;
+}
+
 a {
 	color: #333;
 	text-decoration: underline;
+}
+
+a:visited {
+	opacity: 0.8;
+}
+
+a:hover {
+	color: #f00;
+}
+
+.header,
+.footer {
+	position: relative;
+}
+
+.header {
+	height: 2em;
+	overflow: hidden;
+	margin-bottom: 1em;
+	line-height: 2em;
+	
+	-webkit-transition: height 0.2s;
+	-moz-transition: height 0.2s;
+	-o-transition: height 0.2s;
+	transition: height 0.2s;
+}
+
+.header--open {
+	height: auto;
+}
+
+.player {
+	position: relative;
+}
+
+.progress {
+	position: absolute;
+	top: -0.5em;
+	left: 0;
+	right: 0;
+	background-color: #ccc;
+	cursor: pointer;
+	
+	-webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
+	box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.progress-percentage {
+	width: 0%;
+	height: 0.5em;
+	background-color: #ff0;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$TYPOGRAPHY
+\*------------------------------------*/
+.footer {
+	margin: 1em 0 -3em;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$TYPOGRAPHY
+\*------------------------------------*/
+/*--- HEADINGS ---*/
+h1,
+.alpha {
+	font-size: 2em;
+	line-height: 1.5;
+}
+
+h2,
+.beta {
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+h3,
+.gamma {
+	font-size: 1.25em;
+	line-height: 1.2;
+}
+
+h4,
+.delta {
+	font-size: 1.125em;
+	line-height: 1.333;
+}
+
+h5,
+.espilon {
+	font-weight: bold;
+}
+
+h5,
+.epsilon,
+h6,
+.zeta {
+	font-size: 1em;
+	line-height: 1.5;
+}
+
+/*--- FIGURES ---*/
+figure img{
+	display: block;
+	margin-bottom: 0;
+}
+
+/*--- LISTS ---*/
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+
+ul.numbered {
+	list-style: decimal outside;
+}
+
+dt {
+	font-weight: bold;
+}
+
+/*--- QUOTES ---*/
+q {
+	quotes:"‘" "’" "“" "”";
+}
+
+q:before {
+	content: "‘";
+	content: open-quote;
+}
+
+q:after {
+	content:"’";
+	content:close-quote;
+}
+
+q q:before {
+	content: "“";
+	content: open-quote;
+}
+
+q q:after {
+	content: "”";
+	content: close-quote;
+}
+
+blockquote {
+	quotes: "“" "”";
+}
+
+blockquote p:before {
+	content: "“";
+	content: open-quote;
+}
+
+blockquote p:after {
+	content: "";
+	content: no-close-quote;
+}
+
+blockquote p:last-of-type:after {
+	content: "”";
+	content: close-quote;
+}
+
+blockquote {
+	text-indent: -0.4em;
+}
+
+.source {
+	display: block;
+	text-indent: 0;
+}
+
+.source:before {
+	content: "—";
+}
+
+/*--- GENERAL ---*/
+q,
+i,
+em,
+cite {
+	font-style: italic;
+	font-weight: inherit;
+}
+
+b,
+strong,
+mark {
+	font-weight: bold;
+	font-style: inherit;
+}
+
+mark {
+	background-color: #ffc;
+	color: #333;
+}
+
+s,
+del {
+	text-decoration: line-through;
+}
+
+abbr {
+	cursor: help;
+	border-bottom: 1px dotted;
+}
+
+/*--- CODE ---*/
+pre,
+code {
+	font-family: "Inconsolata", "Monaco", "Consolas", "Courier New", Courier, monospace;
+}
+
+pre {
+	overflow: auto;
+	line-height: 24px;
 }
 
 
