@@ -76,18 +76,6 @@ body {
 	line-height: 1.5em;
 }
 
-body:before {
-	content: "";
-	height: 2em;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: -1;
-	background-color: #f00;
-	border-bottom: 1px solid #006;
-}
-
 img {
 	max-width: 100%;
 }
@@ -111,10 +99,8 @@ a:hover {
 }
 
 .header {
-	height: 2em;
 	overflow: hidden;
 	margin-bottom: 1em;
-	line-height: 2em;
 	
 	-webkit-transition: height 0.2s;
 	-moz-transition: height 0.2s;
@@ -123,7 +109,7 @@ a:hover {
 }
 
 .header--open {
-	height: auto;
+	height: auto !important;
 }
 
 .player {
@@ -131,16 +117,7 @@ a:hover {
 }
 
 .progress {
-	position: absolute;
-	top: -0.5em;
-	left: 0;
-	right: 0;
-	background-color: #ccc;
 	cursor: pointer;
-	
-	-webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
-	-moz-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .progress-percentage {
@@ -154,10 +131,11 @@ a:hover {
 
 
 /*------------------------------------*\
-	$TYPOGRAPHY
+	$FOOTER
 \*------------------------------------*/
 .footer {
-	margin: 1em 0 -3em;
+	clear: both;
+	margin: 1em 0;
 }
 
 

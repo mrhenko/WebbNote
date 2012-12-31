@@ -20,7 +20,7 @@
 	
 	/*--- VARIABLES ---*/
 	var $keynote = $( '#keynote' ),
-		$header = $( '<header id="header" class="header"></header>' ),
+		$header = $( '<header id="header" class="header"><span class="logo">webb<b>note</b></span></header>' ),
 		$footer = $( '<footer id="footer" class="footer"></footer>' ),
 		$quicknav = $( '<ol id="quicknav" class="quicknav"></ol>' ),
 		$player = $( '<div id="player" class="player"></div>' ),
@@ -155,8 +155,8 @@
 			.append( '<a class="menu-open" href="#">&#9776;</a>' );
 		
 		$player
-			.append( '<a href="#" class="play">&nbsp;</a><a href="#" class="stop">&nbsp;</a><a href="#" class="repeat">&nbsp;</a>' )
 			.append( '<div id="progress" class="progress"><div class="progress-percentage"></div>' )
+			.append( '<a href="#" id="play" class="play">&nbsp;</a><a href="#" class="stop">&nbsp;</a><a href="#" class="repeat">&nbsp;</a>' )
 			.append( $audio );
 		
 		$footer
@@ -182,7 +182,7 @@
 		} );
 		
 		for( var i = 0, length = files.length; i < length; i++ ) {
-			$audio.append( '<source src="' + files[ i ] + '" />' );
+			$audio.append( '<source src="' + files[ i ] + '">' );
 		}
 		
 		// Check all data-visible and data-hide attribute to see if
@@ -216,7 +216,6 @@
 		} );
 	} );
 } )( jQuery, jQuery( document ) );
-
 
 function webbnote_check() {
 	var warning = false;

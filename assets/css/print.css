@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/*!
+ * WebbNote
+ * 
+ * @version 0.1.6-wip
+ * @repository https://github.com/mrhenko/WebbNote
+ */
+
 body {
 	font-size: 12pt;
 	line-height: 1.5em;
