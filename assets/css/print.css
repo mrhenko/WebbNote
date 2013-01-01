@@ -1,36 +1,55 @@
+@charset "UTF-8";
+/*!
+ * WebbNote
+ * 
+ * @version 0.1.6-wip
+ * @repository https://github.com/mrhenko/WebbNote
+ */
+
 body {
 	font-size: 12pt;
 	line-height: 1.5em;
 }
 
 .page {
-	position: relative;
-	display: block;
-	opacity: 1;
-	
-	border-bottom: 2px solid #000;
-	
 	width: 70%;
+	display: block;
+	position: relative;
+	opacity: 1;
 	margin: 0 auto;
+	border-bottom: 2px solid #000;
 }
 
 .bullet.timed {
-	opacity: 1;
 	display: block;
 	visibility: visible;
+	opacity: 1;
 }
 
 aside.sidebar {
 	display: none;
 }
 
-h1 {font-size: 24pt;}
-h2 {font-size: 18pt;}
+h1 {
+	font-size: 24pt;
+}
 
-ul {padding-left: 0;}
-li {padding-left: 10px;margin-left: 20px;clear: both;}
+h2 {
+	font-size: 18pt;
+}
+
+ul {
+	padding-left: 0;
+}
+
+li {
+	margin-left: 20px;
+	padding-left: 10px;
+	clear: both;
+}
+
 li.headline {
-	list-style: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	list-style: none;
 }
