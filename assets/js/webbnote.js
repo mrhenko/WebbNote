@@ -6,13 +6,13 @@
  */
 
 ( function( $, $document, undefined ) {
-	// Add js class to html element
-	$( 'html' ).addClass( 'js' );
-		
 	// Check if all prerequisites are fulfilled and bail if not.
 	if ( webbnote_check() !== true ) {
 		return;
 	}
+	
+	// Add js class to html element
+	$( 'html' ).addClass( 'js' );
 	
 	
 	
