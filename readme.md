@@ -11,6 +11,9 @@ Version History
 
 [1]: https://github.com/mrhenko/WebbNote/wiki
 
+### 0.1.5.3
+* Added example.htm as boilerplate for authors.
+
 ### 0.1.5.2
 * New folder structure for dependencies.
 * Updated jQuery to version 1.8.3.
