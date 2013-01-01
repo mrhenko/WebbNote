@@ -224,22 +224,38 @@
 * @return bool True if everything is working and set up correct, otherwise false.
 */
 function webbnote_check() {
-	var warning = false;
+	var warning = new Array(),
+		message;
 	
 	// Check if files variable have been set and contains files.
 	if ( typeof( files ) != undefined && files !== null && Object.prototype.toString.apply( files ) !== '[object Array]' && files.length === 0 ) {
-		warning = '<div><p>Inga ljudfiler har angetts.</p><p>Kontrollera att du använder den <a href="https://github.com/mrhenko/WebbNote/wiki/Syntax">senaste mallen</a> för WebbNote samt att du lagt till ljudfilerna i dokumentets sidfot.</p></div>';
+		// Add message to array.
+		warning.push( '<p>Inga ljudfiler har angetts.</p><p>Kontrollera att du använder den <a href="https://github.com/mrhenko/WebbNote/wiki/Syntax">senaste mallen</a> för WebbNote samt att du lagt till ljudfilerna i dokumentets sidfot.</p>' );
 	}
 	
-	// Check if browser supports audio element.
-	if ( !document.createElement( 'audio' ).canPlayType ) {
-		warning = '<div><p>Din webbläsare har inte stöd för <audio>-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med <ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul></p></div>';
+	// If audio files are present, check for additional errors.
+	if ( warning.length === 0 ) {
+		// Check if browser supports audio element.
+		if ( !document.createElement( 'audio' ).canPlayType ) {
+			message = '<p>Din webbläsare har inte stöd för &lt;audio&gt;-elementet i HTML5.</p><p>Detta är en förutsättning för att WebbNote ska fungera. Uppdatera till en modernare webbläsare eller nyare version av din nuvarande webbläsare.</p><p>WebbNote är testat och fungerar med</p><ul><li><a href="http://www.apple.com/se/safari/" style="color: #000">Apple Safari 5</a>, (i Windows måste du även ha Quicktime installerat)</li><li><a href="http://www.google.com/chrome" style="color: #000">Google Chrome 10</a></li><li><a href="http://mozilla.com" style="color: #000">Mozilla Firefox 4</a></li><li><a href="http://opera.com/browser" style="color: #000">Opera Web Browser 11</a></li><li><a href="http://windows.microsoft.com/sv-SE/internet-explorer/downloads/ie" style="color: #000">Microsoft Internet Explorer 9</a></li></ul><p>Samtliga slides visas nedan och du kan välja att ladda ner tillhörande ljudfiler i respektive format här.</p><ul>';
+			
+			// Add links to audio files.
+			for( var i = 0, length = files.length; i < length; i++ ) {
+				message += '<li><a href="' + files[ i ] + '">' + files[ i ] + '</a></li>';
+			}
+			
+			message += '</ul>';
+			
+			// Add message to array.
+			warning.push( message );
+		}
 	}
 	
 	// Print any warnings.
 	webbnote_error( warning );
 	
-	return ( warning === false ? true : false );
+	// Return true if no warnings were added.
+	return ( warning.length > 0 ? false : true );
 }
 
 /** 
@@ -249,9 +265,20 @@ function webbnote_check() {
 * @return void
 */
 function webbnote_error( warning ) {
-	if ( warning === false ) return;
+	if ( warning.length === 0 ) return;
 	
-	$( 'body' ).prepend( '<div class="page warning"><h1>Ett fel uppstod</h1>' + warning + '</div>' );
+	var error_string = '';
+	
+	// Check if
+	if ( Object.prototype.toString.apply( warning ) === '[object Array]' ) {
+		for( var i = 0, length = warning.length; i < length; i++ ) {
+			error_string += '<li>' + warning[ i ] + '</li>';
+		}
+	} else {
+		error_string += '<li>' + warning + '</li>';
+	}
+	
+	$( 'body' ).prepend( '<div class="page warning"><h1>Ett fel uppstod</h1><ul>' + error_string + '</ul></div>' );
 }
 
 /** 
