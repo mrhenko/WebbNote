@@ -166,21 +166,7 @@
 			.prepend( $header )
 			.append( $footer );
 		
-		// Make a list of the various slides/pages (.page)
-		// and add them to the quick navigation menu
-		$keynote.find( '.page' ).each( function() {
-			var $this = $( this ),
-				data_visible = $this.attr( 'data-visible' ),
-				li_name = $this.find( 'h2' ).html();
-				
-			if ( li_name === null ) {
-				li_name = $this.find( 'h1' ).html();
-			}
-			
-			var new_li = '<li class="page_quicknav"><a href="#" data-time="' + data_visible + '">' + li_name + '</a></li>';
-			$quicknav.append( new_li );
-		} );
-		
+		// Add sources to audio element.
 		for( var i = 0, length = files.length; i < length; i++ ) {
 			$audio.append( '<source src="' + files[ i ] + '">' );
 		}
@@ -214,9 +200,29 @@
 				$this.addClass( 'show' );
 			}
 		} );
+		
+		// Make a list of the various slides/pages (.page)
+		// and add them to the quick navigation menu
+		$keynote.find( '.page' ).each( function() {
+			var $this = $( this ),
+				data_visible = $this.attr( 'data-visible' ),
+				li_name = $this.find( 'h2' ).html();
+				
+			if ( li_name === null ) {
+				li_name = $this.find( 'h1' ).html();
+			}
+			
+			var new_li = '<li class="quicknav-page"><a href="#" data-time="' + data_visible + '">' + li_name + '</a></li>';
+			$quicknav.append( new_li );
+		} );
 	} );
 } )( jQuery, jQuery( document ) );
 
+/** 
+* Check prerequisites for WebbNote.
+* 
+* @return bool True if everything is working and set up correct, otherwise false.
+*/
 function webbnote_check() {
 	var warning = false;
 	
@@ -236,6 +242,12 @@ function webbnote_check() {
 	return ( warning === false ? true : false );
 }
 
+/** 
+* Print warnings to body.
+* 
+* @param warning Message to display.
+* @return void
+*/
 function webbnote_error( warning ) {
 	if ( warning === false ) return;
 	
@@ -246,10 +258,9 @@ function webbnote_error( warning ) {
 * Hours:Minutes:Seconds to milliseconds.
 *
 * Converts time that has been written like HH:MM:SS
-* to milliseconds. Used on initilazation of WebbNote.
+* to milliseconds. Used on initiation of WebbNote.
 * 
 * @param time_array Time, spliced to an array.
-*
 * @return An integer with the time in milliseconds.
 */
 function hms_to_ms( time_array ) {

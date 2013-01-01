@@ -93,51 +93,6 @@ a:hover {
 	color: #f00;
 }
 
-.header,
-.footer {
-	position: relative;
-}
-
-.header {
-	overflow: hidden;
-	margin-bottom: 1em;
-	
-	-webkit-transition: height 0.2s;
-	-moz-transition: height 0.2s;
-	-o-transition: height 0.2s;
-	transition: height 0.2s;
-}
-
-.header--open {
-	height: auto !important;
-}
-
-.player {
-	position: relative;
-}
-
-.progress {
-	cursor: pointer;
-}
-
-.progress-percentage {
-	width: 0%;
-	height: 0.5em;
-	background-color: #ff0;
-}
-
-
-
-
-
-/*------------------------------------*\
-	$FOOTER
-\*------------------------------------*/
-.footer {
-	clear: both;
-	margin: 1em 0;
-}
-
 
 
 
@@ -146,6 +101,15 @@ a:hover {
 	$TYPOGRAPHY
 \*------------------------------------*/
 /*--- HEADINGS ---*/
+h1,
+h2,
+h3,
+.alpha,
+.beta,
+.gamma {
+	margin-bottom: 0.25em;
+}
+
 h1,
 .alpha {
 	font-size: 2em;
@@ -184,19 +148,47 @@ h6,
 }
 
 /*--- FIGURES ---*/
-figure img{
+figure img {
 	display: block;
 	margin-bottom: 0;
 }
 
-/*--- LISTS ---*/
-li > ul,
-li > ol {
-	margin-bottom: 0;
+figcaption {
+	margin-top: 1em;
+	font-size: 0.5em;
+	line-height: 1.25em;
 }
 
+/*--- LISTS ---*/
+ol,
+ul {
+	padding: 0 0 1.5em 0.75em;
+}
+
+ol,
 ul.numbered {
 	list-style: decimal outside;
+}
+
+ul {
+	list-style: disc outside;
+}
+
+li > ul,
+li > ol {
+	margin: 0.5em 0 0;
+	padding-bottom: 0.75em;
+}
+
+li {
+	-webkit-transition: opacity 1s linear;
+	-moz-transition: opacity 1s linear;
+	-o-transition: opacity 1s linear;
+	transition: opacity 1s linear;
+}
+
+li ul li {
+	list-style-type: square;
 }
 
 dt {
@@ -307,18 +299,72 @@ pre {
 
 
 /*------------------------------------*\
-	$SPECIFIC
+	$HEADER
+\*------------------------------------*/
+.header {
+	position: relative;
+}
+
+.header {
+	overflow: hidden;
+	margin-bottom: 1em;
+	
+	-webkit-transition: height 0.2s;
+	-moz-transition: height 0.2s;
+	-o-transition: height 0.2s;
+	transition: height 0.2s;
+}
+
+.header--open {
+	height: auto !important;
+}
+
+.quicknav {
+	padding: 0;
+	list-style: none outside;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$FOOTER
+\*------------------------------------*/
+.footer {
+	margin: 1em 0;
+}
+
+.progress {
+	cursor: pointer;
+}
+
+.progress-percentage {
+	width: 0%;
+	height: 0.5em;
+	background-color: #ff0;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$PAGE
 \*------------------------------------*/
 .page {
 	position: relative;
-	overflow: hidden;	
+	overflow: hidden;
+	margin-bottom: 1em;	
 }
 
 .js .page {
 	display: none;
+	margin-bottom: 0;
 }
 
-.dev .page {
+.dev .page,
+.page.show {
 	display: block;
 }
 
@@ -331,20 +377,16 @@ pre {
 	margin: 1em 0 0.5em 0;
 }
 
+#keynote li {
+	margin-bottom: 0.25em;
+}
+
 #keynote li.timed {
 	opacity: 0;
 }
 
 #keynote li.timed.show {
 	opacity: 1;
-}
-
-.page.show {
-	display: block;
-}
-
-.dev #player {
-	display: none;
 }
 
 

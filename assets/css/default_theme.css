@@ -17,6 +17,10 @@ body {
 	padding-bottom: 3em;
 }
 
+a:hover {
+	color: #ce3d00;
+}
+
 .page {
 	height: 400px;
 	padding: 20px;
@@ -214,14 +218,6 @@ body:before {
 /*------------------------------------*\
 	$MEDIAQUERIES
 \*------------------------------------*/
-@media screen and (min-width: 480px) {
-	
-}
-
-@media screen and (min-width: 600px) {
-	
-}
-
 @media screen and (min-width: 1024px) {
 	html {
 		margin-left: -220px;
@@ -236,6 +232,7 @@ body:before {
 	
 	#keynote {
 		padding-top: 0.5em;
+		font-size: 1.5em;
 	}
 	
 	.page {
@@ -249,20 +246,7 @@ body:before {
 	h1,
 	h2,
 	h3 {
-		line-height: 1em;
+		margin-bottom: 0.25em;
 		text-align: center;
-		font-weight: bold;
-	}
-	
-	h1 {
-		font-size: 4em;
-	}
-	
-	h2 {
-		font-size: 3em;
-	}
-	
-	h3 {
-		font-size: 1.5em;
 	}
 }
