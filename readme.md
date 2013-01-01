@@ -12,9 +12,9 @@ Version History
 [1]: https://github.com/mrhenko/WebbNote/wiki
 
 ### 0.1.6
-* New, responsive and mobile first, default theme. Design by Lena Gustafsson.
+* New, responsive and mobile first, default theme.
 * Progress bar to show current position in keynote.
-* Better error messages.
+* Better handling of errors.
 * Added example.htm to guide authors.
 
 ### 0.1.5.3
@@ -60,4 +60,5 @@ Version History
 -------------------------------------------------------------------------------------------
 
 Credits
-The Media Player Icons in the default theme is created by deleket (http://deleket.deviantart.com/) and licensed as CC Attribution-Noncommercial 3.0
+Icons for media player buttons are from [Batch][https://github.com/AdamWhitcroft/Batch], made by Adam Withcroft.
+Default theme, as of 0.1.6, is designed by Lena Gustafsson.
