@@ -15,7 +15,6 @@ Version History
 * New, responsive and mobile first, default theme.
 * Progress bar to show current position in keynote.
 * Better handling of errors.
-* Added example.htm to guide authors.
 
 ### 0.1.5.3
 * Added example.htm as boilerplate for authors.
@@ -54,11 +53,10 @@ Version History
  *	Styla "Din webbläsare stöder inte HTML5 Audio"-meddelandet bättre.
  
 0.0.4
- *	Lade till stöd för tidsangivelser i timmar, minuter och sekunder
-	istället för bara millisekunder.
+ *	Lade till stöd för tidsangivelser i timmar, minuter och sekunder istället för bara millisekunder.
 
 -------------------------------------------------------------------------------------------
 
 Credits
-Icons for media player buttons are from [Batch][https://github.com/AdamWhitcroft/Batch], made by Adam Withcroft.
+Icons for media player buttons are from [Batch](https://github.com/AdamWhitcroft/Batch), made by Adam Withcroft.
 Default theme, as of 0.1.6, is designed by Lena Gustafsson.
