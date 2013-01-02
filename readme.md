@@ -11,6 +11,18 @@ Version History
 
 [1]: https://github.com/mrhenko/WebbNote/wiki
 
+### 0.1.6
+* New, responsive and mobile first, default theme.
+* Progress bar to show current position in keynote.
+* Better handling of errors.
+
+### 0.1.5.3
+* Added example.htm as boilerplate for authors.
+
+### 0.1.5.2
+* New folder structure for dependencies.
+* Updated jQuery to version 1.8.3.
+
 ### 0.1.5.1
 * preview.htm now uses sessionStorage so you can refresh the page in the browser without having to retype the filename of the file that you want to preview. (Se Issue #10 on github.)
 * Added a .gitignore file to the repository.
@@ -41,16 +53,10 @@ Version History
  *	Styla "Din webbläsare stöder inte HTML5 Audio"-meddelandet bättre.
  
 0.0.4
- *	Lade till stöd för tidsangivelser i timmar, minuter och sekunder
-	istället för bara millisekunder.
+ *	Lade till stöd för tidsangivelser i timmar, minuter och sekunder istället för bara millisekunder.
 
 -------------------------------------------------------------------------------------------
 
-Planerade tillägg
- *	Möjlighet att lägga in olika ljudfiler på olika sidor/slides.  
- *	Möjlighet att återuppta uppspelning om webbläsarfönstret stängts (localStorage).  
- 	 *	Möjlighet att lägga in egna bokmärken?  
-
-
 Credits
-The Media Player Icons in the default theme is created by deleket (http://deleket.deviantart.com/) and licensed as CC Attribution-Noncommercial 3.0
+Icons for media player buttons are from [Batch](https://github.com/AdamWhitcroft/Batch), made by Adam Withcroft.
+Default theme, as of 0.1.6, is designed by Lena Gustafsson.
