@@ -1,0 +1,463 @@
+@charset "UTF-8";
+/*!
+ * WebbNote
+ * 
+ * @version 0.1.6
+ * @repository https://github.com/mrhenko/WebbNote
+ */
+
+/*------------------------------------*\
+	$RESET
+\*------------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+/*------------------------------------*\
+	$BASE
+\*------------------------------------*/
+html {
+	background: #ddd;
+	color: #333;
+}
+
+body {
+	font-family: "Lucinda Grande", Helvetica, Verdana;
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	color: #333;
+	text-decoration: underline;
+}
+
+a:visited {
+	opacity: 0.8;
+}
+
+a:hover {
+	color: #f00;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$TYPOGRAPHY
+\*------------------------------------*/
+p {
+	margin-bottom: 0.75em;
+}
+
+/*--- HEADINGS ---*/
+h1,
+h2,
+h3,
+.alpha,
+.beta,
+.gamma {
+	margin-bottom: 0.25em;
+}
+
+h1,
+.alpha {
+	font-size: 2em;
+	line-height: 1.5;
+}
+
+h2,
+.beta {
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+h3,
+.gamma {
+	font-size: 1.25em;
+	line-height: 1.2;
+}
+
+h4,
+.delta {
+	font-size: 1.125em;
+	line-height: 1.333;
+}
+
+h5,
+.espilon {
+	font-weight: bold;
+}
+
+h5,
+.epsilon,
+h6,
+.zeta {
+	font-size: 1em;
+	line-height: 1.5;
+}
+
+/*--- FIGURES ---*/
+figure img {
+	display: block;
+	margin-bottom: 0;
+}
+
+figcaption {
+	margin-top: 1em;
+	font-size: 0.5em;
+	line-height: 1.25em;
+}
+
+/*--- LISTS ---*/
+ol,
+ul {
+	padding: 0 0 1.5em 0.75em;
+}
+
+ol,
+ul.numbered {
+	list-style: decimal outside;
+}
+
+ul {
+	list-style: disc outside;
+}
+
+li > ul,
+li > ol {
+	margin: 0.5em 0 0;
+	padding-bottom: 0.75em;
+}
+
+li {
+	-webkit-transition: opacity 1s linear;
+	-moz-transition: opacity 1s linear;
+	-o-transition: opacity 1s linear;
+	transition: opacity 1s linear;
+}
+
+li ul li {
+	list-style-type: square;
+}
+
+dt {
+	font-weight: bold;
+}
+
+/*--- QUOTES ---*/
+q {
+	quotes:"‘" "’" "“" "”";
+}
+
+q:before {
+	content: "‘";
+	content: open-quote;
+}
+
+q:after {
+	content:"’";
+	content:close-quote;
+}
+
+q q:before {
+	content: "“";
+	content: open-quote;
+}
+
+q q:after {
+	content: "”";
+	content: close-quote;
+}
+
+blockquote {
+	quotes: "“" "”";
+}
+
+blockquote p:before {
+	content: "“";
+	content: open-quote;
+}
+
+blockquote p:after {
+	content: "";
+	content: no-close-quote;
+}
+
+blockquote p:last-of-type:after {
+	content: "”";
+	content: close-quote;
+}
+
+blockquote {
+	text-indent: -0.4em;
+}
+
+.source {
+	display: block;
+	text-indent: 0;
+}
+
+.source:before {
+	content: "—";
+}
+
+/*--- GENERAL ---*/
+q,
+i,
+em,
+cite {
+	font-style: italic;
+	font-weight: inherit;
+}
+
+b,
+strong,
+mark {
+	font-weight: bold;
+	font-style: inherit;
+}
+
+mark {
+	background-color: #ffc;
+	color: #333;
+}
+
+s,
+del {
+	text-decoration: line-through;
+}
+
+abbr {
+	cursor: help;
+	border-bottom: 1px dotted;
+}
+
+/*--- CODE ---*/
+pre,
+code {
+	font-family: "Inconsolata", "Monaco", "Consolas", "Courier New", Courier, monospace;
+}
+
+pre {
+	overflow: auto;
+	line-height: 24px;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$HEADER
+\*------------------------------------*/
+.header {
+	position: relative;
+}
+
+.header {
+	overflow: hidden;
+	margin-bottom: 1em;
+	
+	-webkit-transition: height 0.2s;
+	-moz-transition: height 0.2s;
+	-o-transition: height 0.2s;
+	transition: height 0.2s;
+}
+
+.header--open {
+	height: auto !important;
+}
+
+.quicknav {
+	padding: 0;
+	list-style: none outside;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$FOOTER
+\*------------------------------------*/
+.footer {
+	margin: 1em 0;
+}
+
+.progress {
+	cursor: pointer;
+}
+
+.progress-percentage {
+	width: 0%;
+	height: 0.5em;
+	background-color: #ff0;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$PAGE
+\*------------------------------------*/
+.page {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 1em;	
+}
+
+.js .page {
+	display: none;
+	margin-bottom: 0;
+}
+
+.dev .page,
+.page.show {
+	display: block;
+}
+
+.page.warning {
+	height: auto;
+	border: #f00 solid 4px;
+}
+
+#keynote li {
+	margin-bottom: 0.25em;
+}
+
+#keynote li.timed {
+	opacity: 0;
+}
+
+#keynote li.timed.show {
+	opacity: 1;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$HELPERS
+\*------------------------------------*/
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.cover {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.inline {
+	display: inline;
+}
+
+ul.inline {
+	margin: 0;
+	padding: 0;
+}
+
+ul.inline li {
+	display: inline;
+}
+
+.hide-text {
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: '';
+	display: table;
+}
