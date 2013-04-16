@@ -121,6 +121,30 @@ body:before {
 	text-align: left;
 }
 
+/* Add a thin line beneath the page headers */
+.page h2 {
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #000;
+	margin-bottom: 0.5em;
+}
+
+/* But remove it once it's part of a group of headers */
+.page hgroup h2 {
+	border: none;
+}
+
+li > ul, li > ol {
+	margin: 0;
+	padding-bottom: 0;
+}
+
+/* Basic typography for the bullets */
+.page li {
+	line-height: 1.5em;
+}
+
+
+
 .quicknav {
 	margin-bottom: 2em;
 	line-height: 1.5;
