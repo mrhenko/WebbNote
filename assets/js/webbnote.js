@@ -1,7 +1,7 @@
 /*!
  * WebbNote
  * 
- * @version 0.1.6
+ * @version 0.1.6.5
  * @repository https://github.com/mrhenko/WebbNote
  */
 
