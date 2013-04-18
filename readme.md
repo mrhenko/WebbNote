@@ -9,14 +9,16 @@ Version History
 
 **Important:** Version 0.1 makes several changes to the syntax of WebbNote (and changes the default language for this file to english). Check the [wiki on github][1] for more information.
 
-[1]: https://github.com/mrhenko/WebbNote/wiki
+### 0.1.6.5[Download from github][2]
+* Enhancements to the new responsive theme.
+* Bug fixes.
 
-### 0.1.6
+### 0.1.6[Download from github][3]
 * New, responsive and mobile first, default theme.
 * Progress bar to show current position in keynote.
 * Better handling of errors.
 
-### 0.1.5.3
+### 0.1.5.3[Download from github][4]
 * Added example.htm as boilerplate for authors.
 
 ### 0.1.5.2
@@ -60,3 +62,8 @@ Version History
 Credits
 Icons for media player buttons are from [Batch](https://github.com/AdamWhitcroft/Batch), made by Adam Withcroft.
 Default theme, as of 0.1.6, is designed by Lena Gustafsson.
+
+[1]: https://github.com/mrhenko/WebbNote/wiki
+[2]: https://github.com/mrhenko/WebbNote/archive/0.1.6.5.tar.gz
+[3]: https://github.com/mrhenko/WebbNote/archive/0.1.6.tar.gz
+[4]: https://github.com/mrhenko/WebbNote/archive/0.1.5.3.tar.gz
