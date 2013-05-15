@@ -13,7 +13,11 @@
 	
 	// Add js class to html element
 	$( 'html' ).addClass( 'js' );
-	
+
+	// Check for dev hash
+	if (window.location.hash == '#dev') {
+		$( 'html' ).addClass( 'dev' );
+	}	
 	
 	
 	

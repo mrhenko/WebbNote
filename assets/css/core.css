@@ -495,8 +495,15 @@ ul.inline li {
 	-moz-transform-style: preserve-3d;
 }
 
-[data-transition = 'flip'].show {
+[data-transition = 'flip'].show, .dev [data-transition = 'flip'] {
 	-webkit-transform: rotateY(0deg);
 	-moz-transform: rotateY(0deg);
+	position: static;
+}
+
+.dev [data-transition = 'flip'] img {
+	display: none;
+}
+
 }
 
