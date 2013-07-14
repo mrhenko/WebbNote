@@ -164,6 +164,10 @@ figcaption {
 	line-height: 1.25em;
 }
 
+iframe {
+	width: 100%;	
+}
+
 /*--- LISTS ---*/
 ol,
 ul {
@@ -198,6 +202,11 @@ li ul li {
 
 dt {
 	font-weight: bold;
+}
+
+li > iframe,
+li > img {
+	vertical-align: middle;
 }
 
 /*--- QUOTES ---*/
