@@ -22,7 +22,7 @@ a:hover {
 }
 
 .page {
-	height: 400px;
+	min-height: 400px;
 	padding: 20px;
 	background: #fff;
 }
@@ -236,7 +236,7 @@ body:before {
 	}
 	
 	.page {
-		height: 550px;
+		min-height: 550px;
 	}
 	
 	.menu-open {
