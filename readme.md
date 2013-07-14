@@ -11,6 +11,13 @@ Version History
 
 [1]: https://github.com/mrhenko/WebbNote/wiki
 
+### 0.1.6.6
+* Fix issue with overflowing content.
+* Updated jQuery to version 1.10.2.
+
+### 0.1.6.5
+* Control play/pause using spacebar.
+
 ### 0.1.6
 * New, responsive and mobile first, default theme.
 * Progress bar to show current position in keynote.
