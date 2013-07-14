@@ -1,7 +1,7 @@
 /*!
  * WebbNote
  * 
- * @version 0.1.6
+ * @version 0.1.6.5
  * @repository https://github.com/mrhenko/WebbNote
  */
 
@@ -88,6 +88,17 @@
 				$audio.trigger( 'timeupdate' );
 			}
 		} );
+
+	$document.keypress(function(k) {
+		//console.log(k.charCode);		
+		if (k.charCode === 32) { /* Spacebar */
+			if ( audio.paused ) {
+				audio.play();
+			} else {
+				audio.pause();
+			} 
+		}
+	});
 	
 	$audio.bind( 'play', function() {
 		$( '#play' ).addClass( 'pause' );

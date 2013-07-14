@@ -2,7 +2,7 @@
 /*!
  * WebbNote
  * 
- * @version 0.1.6
+ * @version 0.1.6.5
  * @repository https://github.com/mrhenko/WebbNote
  */
 
@@ -200,11 +200,21 @@ li ul li {
 	list-style-type: square;
 }
 
+li.no-bullet {
+	list-style: none;
+}
+
 dt {
 	font-weight: bold;
 }
 
-li > iframe,
+.onebyone li {
+	position: absolute;
+	width: 100%;
+	margin-left: -38px;
+}
+
+li > iframe
 li > img {
 	vertical-align: middle;
 }
@@ -399,6 +409,10 @@ pre {
 	opacity: 1;
 }
 
+.dev #keynote .timed {
+	opacity: 1;
+}
+
 
 
 
@@ -471,3 +485,28 @@ ul.inline li {
 	content: '';
 	display: table;
 }
+
+/*-------------------------------*\
+ * Transitions *
+ * ------------------------------*/
+[data-transition] {
+	-webkit-transition: 1s all;
+	transition: 1s all;
+}
+
+[data-transition = 'flip'] {
+	position: absolute;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+}
+
+[data-transition = 'flip'].show {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+}
+
